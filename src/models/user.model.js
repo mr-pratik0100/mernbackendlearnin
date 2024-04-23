@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
     coverImage:{
         type:String  //cloudinary url
     },
-    whatchHistory:[
+    watchHistory:[
         
             {
                 type:mongoose.Schema.Types.ObjectId,  //we are adding ref of video collection in user collection and here are two imp fields i.e type and ref. must--> here we are keeping watch history which is one array hold information about videos which are seen by user.
