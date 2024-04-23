@@ -81,7 +81,7 @@ userSchema.methods.generateAccessToken= function(){
     return jwt.sign(
         {
             //this.id,this.username it is in db take from their and compare with local variable here
-            id:this.id,
+            _id:this._id,
             email:this.email,
             username:this.username,
             fullname:this.fullname
@@ -99,7 +99,7 @@ userSchema.methods.generateAccessToken= function(){
 userSchema.methods.generateRefreshToken= function(){
     jwt.sign(
         {
-            id:this.id
+            _id:this._id
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
