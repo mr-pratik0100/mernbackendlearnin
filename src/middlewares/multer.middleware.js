@@ -9,7 +9,7 @@ import multer from "multer";
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
 
-        //************I have dount on this location of folder temp if file not proper uploading check from here */
+        //************I have dount on this location of folder temp if file not proper uploading check from here ./public/temp */
         cb(null, './public/temp')
       },
       filename: function (req, file, cb) {

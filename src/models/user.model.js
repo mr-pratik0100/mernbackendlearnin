@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 const userSchema = new mongoose.Schema({
     username:{
         type:String,
-        require:trur,
+        require:true,
         unique:true,
         lowercase:true,
         trim:true,
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        require:trur,
+        require:true,
         unique:true,
         lowercase:true,
         trim:true,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     fullname:{
         type:String,
-        require:trur,
+        require:true,
         lowercase:true,
         trim:true,
         index:true   
@@ -76,6 +76,7 @@ userSchema.methods.isPasswordCorrect = async function(password){
    return await bcrypt.compare(password,this.password);
 }
 
+//access token is for short period & refresh token for long period
 userSchema.methods.generateAccessToken= function(){
     return jwt.sign(
         {
